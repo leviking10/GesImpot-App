@@ -24,13 +24,13 @@
             <input type="number" step="0.01" class="form-control" id="montantDeclaration" th:field="*{montantDeclaration}" required>
         </div>
         <div class="mb-3">
-            <label for="declarant" class="form-label">Select Declarant</label>
+            <label for="declarant" class="form-label">Le Declarant</label>
             <select class="form-control" id="declarant" th:field="*{declarant}">
-                <option value="" >Select a Declarant</option>
+                <option value="" >Selectionnez un Declarant</option>
                 <option th:each="declarant : ${listDeclarants}" th:value="${declarant.id}" th:text="${declarant.raisonSociale}"></option>
             </select>
         </div>
-        <button type="submit" class="btn btn-info">Save Declaration</button>
+        <button type="submit" class="btn btn-info">Enregistrer</button>
     </form>
 </div>
 </body>
