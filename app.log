@@ -3893,3 +3893,8 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2023-08-22T11:11:26.043Z  INFO 13592 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
 2023-08-22T11:11:26.275Z DEBUG 13592 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select d1_0.id,d1_0.adresse,d1_0.email,d1_0.raison_sociale,d1_0.telephone from declarant d1_0
 2023-08-22T11:11:29.248Z DEBUG 13592 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select d1_0.id,d1_0.adresse,d1_0.email,d1_0.raison_sociale,d1_0.telephone from declarant d1_0 where d1_0.id=?
+2023-08-22T11:21:38.575Z  INFO 13592 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-22T11:21:38.578Z TRACE 13592 --- [SpringApplicationShutdownHook] o.h.type.spi.TypeConfiguration$Scope     : Handling #sessionFactoryClosed from [org.hibernate.internal.SessionFactoryImpl@505adadc] for TypeConfiguration
+2023-08-22T11:21:38.578Z DEBUG 13592 --- [SpringApplicationShutdownHook] o.h.type.spi.TypeConfiguration$Scope     : Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@3bfbf9cc] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@505adadc]
+2023-08-22T11:21:38.582Z  INFO 13592 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-22T11:21:38.589Z  INFO 13592 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
