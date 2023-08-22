@@ -1,9 +1,10 @@
-# GesImpot-App
+##                     Mise en Place d’un Système de Régularisation des Impôts pour les Contribuables
 
-### Ajout Declarant
+
+### Formulaire d'Ajout d'un Declarant
 ![Ajout Declarant](screenshots/Ajout-declarant.png)
 
-### Ajout Declaration
+### Formulaire d'Ajout d'une Declaration
 ![Ajout Declaration](screenshots/Ajout-declaration.png)
 
 ### Ajout Paiement d'une Declaration
