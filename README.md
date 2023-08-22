@@ -1,4 +1,4 @@
-##                     Mise en Place d’un Système de Régularisation des Impôts pour les Contribuables
+##                     Mise en Place d’un Système de Régularisation des Impôts 
 
 
 ### Formulaire d'Ajout d'un Declarant
