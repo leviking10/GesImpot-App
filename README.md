@@ -23,7 +23,7 @@
 ![Détails des Paiements d'une Declaration](screenshots/Details-des-paiements-d-une-declaration.png)
 
 ### Mise à jour des Paiements d'une Declaration
-![Détails des Paiements d'une Declaration](screenshots/Details-des-paiements-d-une-declaration.png)
+![Détails des Paiements d'une Declaration](screenshots/update-paiement.png)
 
 ### Verification des Montants pour ne pas que le montant des paiements soit supperieur au montant de la déclaration
 ![Verification des Montants](screenshots/verification-des-montants.png)
