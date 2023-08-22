@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ajout de Declarant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-5">
+    <h1>Nouveau Declarant</h1>
+    <form th:action="@{/declarants/saveDeclarant}" th:object="${declarant}" method="post">
+
+        <div class="form-group">
+            <label for="raisonSociale">Raison Sociale</label>
+            <input type="text" class="form-control" id="raisonSociale" th:field="*{raisonSociale}" />
+            <span th:if="${#fields.hasErrors('raisonSociale')}" th:errors="*{raisonSociale}" class="text-danger">Raison Sociale is required</span>
+        </div>
+
+        <div class="form-group">
+            <label for="adresse">Adresse</label>
+            <input type="text" class="form-control" id="adresse" th:field="*{adresse}" />
+            <span th:if="${#fields.hasErrors('adresse')}" th:errors="*{adresse}" class="text-danger">Adresse is required</span>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" th:field="*{email}" />
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger">Email is required</span>
+        </div>
+
+        <div class="form-group">
+            <label for="telephone">Téléphone</label>
+            <input type="text" class="form-control" id="telephone" th:field="*{telephone}" />
+            <span th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}" class="text-danger">Téléphone is required</span>
+        </div><br/>
+        <button type="submit" class="btn btn-info">Enregistrer</button>
+    </form>
+</div>
+</body>
+</html>

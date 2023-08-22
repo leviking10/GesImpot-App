@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nouveau Declaration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-4">
+    <h2>Nouveau Declaration</h2>
+    <form th:action="@{/declarations/saveDeclaration}" th:object="${declaration}" method="post">
+        <div class="mb-3">
+            <label for="nomDeclaration" class="form-label">Nom Declaration</label>
+            <input type="text" class="form-control" id="nomDeclaration" th:field="*{nomDeclaration}" required>
+        </div>
+        <div class="mb-3">
+            <label for="dateDeclaration" class="form-label">Date Declaration</label>
+            <input type="date" class="form-control" id="dateDeclaration" th:field="*{dateDeclaration}" required>
+        </div>
+        <div class="mb-3">
+            <label for="montantDeclaration" class="form-label">Montant Declaration</label>
+            <input type="number" step="0.01" class="form-control" id="montantDeclaration" th:field="*{montantDeclaration}" required>
+        </div>
+        <div class="mb-3">
+            <label for="declarant" class="form-label">Select Declarant</label>
+            <select class="form-control" id="declarant" th:field="*{declarant}">
+                <option value="" >Select a Declarant</option>
+                <option th:each="declarant : ${listDeclarants}" th:value="${declarant.id}" th:text="${declarant.raisonSociale}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-info">Save Declaration</button>
+    </form>
+</div>
+</body>
+</html>

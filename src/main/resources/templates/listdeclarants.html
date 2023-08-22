@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des Declarants</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+</head>
+<body>
+<div class="container my-2">
+    <a class="btn btn-primary" th:href="@{/declarants/new}">Nouveau</a>
+    <h1>Liste des Declarants</h1>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Raison Sociale</th>
+        <th>Adresse</th>
+        <th>Email</th>
+        <th>Téléphone</th>
+        <th>Action</th>
+     </tr>
+    </thead>
+    <tbody>
+        <tr th:each="declarant : ${listdeclarants}">
+            <td th:text="${declarant.id}"></td>
+            <td th:text="${declarant.raisonSociale}"></td>
+            <td th:text="${declarant.adresse}"></td>
+            <td th:text="${declarant.email}"></td>
+            <td th:text="${declarant.telephone}"></td>
+            <td><a th:href="@{/declarants/ShowFormFoUpdate/{id}(id=${declarant.id})}" class="btn btn-primary"><i class="fas fa-pencil"></i></a>
+            <a th:href="@{/declarants/deleteDeclarant/{id}(id=${declarant.id})}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>

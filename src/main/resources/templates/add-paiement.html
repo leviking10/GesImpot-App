@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nouveau Paiement</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-4">
+    <h2>Nouveau Paiement</h2>
+    <div th:if="${error}" class="alert alert-danger" role="alert">
+        <p th:text="${error}"></p>
+    </div>
+    <form th:action="@{/paiements/savePaiement}" th:object="${paiement}" method="post" onsubmit="return validatePaymentAmount();">
+        <!-- CSRF Token -->
+    <!--    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/> -->
+        <input type="hidden" id="previousMontantPaiement" value="0" />
+
+        <div class="mb-3">
+            <label for="datePaiement" class="form-label">Date Paiement</label>
+            <input type="date" class="form-control" id="datePaiement" th:field="*{datePaiement}" required>
+        </div>
+        <div class="mb-3">
+            <label for="montantPaiement" class="form-label">Montant Paiement</label>
+            <input type="number" step="0.01" class="form-control" id="montantPaiement" th:field="*{montantPaiement}" required>
+        </div>
+
+        <!-- Declaration ID is sent as a hidden field -->
+        <input type="hidden" th:field="*{declaration.id}" th:value="${paiement.declaration.id}" />
+
+        <div class="mb-3">
+            <label class="form-label">Nom de Declaration</label>
+            <input type="text" class="form-control" th:value="${paiement.declaration.nomDeclaration}" readonly>
+        </div>
+
+        <button type="submit" class="btn btn-info">Enregistrer</button>
+    </form>
+</div>
+
+<script type="text/javascript">
+    function validatePaymentAmount() {
+    var montantPaiement = parseFloat(document.getElementById('montantPaiement').value);
+    var previousMontantPaiement = parseFloat(document.getElementById('previousMontantPaiement').value || 0);
+    var montantDeclaration = /*[[${paiement.declaration.montantDeclaration}]]*/ 0.0;
+
+    // Calculer la différence entre le montant précédent et le nouveau montant.
+    var diffMontant = montantPaiement - previousMontantPaiement;
+
+    if (isNaN(montantPaiement) || isNaN(montantDeclaration)) {
+        displayError("Veuillez entrer des montants valides.");
+        return false;
+    }
+
+    if (diffMontant > montantDeclaration) {
+        displayError("Le montant ajusté du paiement ne peut pas être supérieur au montant de la déclaration.");
+        return false;
+    }
+
+    return true;
+}
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js" integrity="sha384-eMNCOe7tC1do4GGD6CJ0nY+5g39g3eIFD2tP3U+Jz4Ck5BdPtF+to8xM6B5z6W5" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFjcJ6pajs/rfdfs3SO+kD4Ck5BdPtF+to8xM6B5z6W5" crossorigin="anonymous"></script>
+</body>
+</html>
